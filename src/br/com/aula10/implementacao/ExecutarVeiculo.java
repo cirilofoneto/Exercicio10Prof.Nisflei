@@ -18,7 +18,7 @@ public class ExecutarVeiculo {
 		VeiculoBo vbo = new VeiculoBo();
 		VeiculoDao veiculoDAO = new VeiculoDao();
 		
-
+		System.out.println("Tesye");
 
 		int menu = 0;
 
