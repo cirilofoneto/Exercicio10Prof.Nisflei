@@ -89,15 +89,12 @@ public class VeiculoDao {
 	}
 
 	public void registrar(String placa) {
-		Veiculos veicTO = new Veiculos();
+	
 
 		try {
 
 			boolean licenciamento = consultaValorPagoLicencianemto(placa);
 			boolean veiculoJaLicenciado = consultaVeiculoJaFoiLicenciado(placa);
-			System.out.println("ConsultaValorPagoLicenciamento é =" + licenciamento);
-			System.out.println("consultaVeiculoJafoiLicenciado é = " + veiculoJaLicenciado);
-			
 
 			if (veiculoJaLicenciado == false) {
 
@@ -132,12 +129,12 @@ public class VeiculoDao {
 						}
 
 						else if (contLicenciamento == 2) {
-							System.out.println("Veiculo sem documentação");
+							System.out.println("Veiculo Sem Licenciamento");
 						}
 					}
 				}
 			} else if (veiculoJaLicenciado == true) {
-				System.out.println("Ja Existem um Licenciamento desse Veiculo no Sistema");
+				System.out.println("Ja existem um licenciamento para veiculo no Sistema");
 			}
 
 		} catch (NullPointerException e) {

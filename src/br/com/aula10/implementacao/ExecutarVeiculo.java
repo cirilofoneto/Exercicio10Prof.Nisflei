@@ -18,7 +18,7 @@ public class ExecutarVeiculo {
 		VeiculoBo vbo = new VeiculoBo();
 		VeiculoDao veiculoDAO = new VeiculoDao();
 		
-		System.out.println("Tesye");
+		
 
 		int menu = 0;
 
@@ -28,7 +28,7 @@ public class ExecutarVeiculo {
 			menu = Integer.parseInt(JOptionPane.showInputDialog(null,
 					" 1 - Incluir \n 2 - Alterar \n 3 - Consultar \n 4 - Listar \n 5 - Deletar \n 6 - Consultar Licenciamento \n 0 - Sair"));
 			}catch (NumberFormatException e) {
-				System.out.println("Valor digitado no menu Invalido");
+				System.out.println("Valor Invalido");
 			}
 			
 			switch (menu) {
@@ -37,15 +37,15 @@ public class ExecutarVeiculo {
 				Licenciamento licenciamento = new Licenciamento();
 				
 				try {
-				veiculosTO.setPlaca(String.format(JOptionPane.showInputDialog(null, "Digie a Placa")));
-				veiculosTO.setModelo(String.format(JOptionPane.showInputDialog(null, "Digie o Modelo")));
+				veiculosTO.setPlaca(String.format(JOptionPane.showInputDialog(null, "Digite Placa")));
+				veiculosTO.setModelo(String.format(JOptionPane.showInputDialog(null, "Digite Modelo")));
 				veiculosTO.setPotencia(Integer.parseInt(JOptionPane.showInputDialog(null, " Digite Pontencia")));
-				licenciamento.setAno(Integer.parseInt(JOptionPane.showInputDialog(null, "Digite ano do veiculo")));
+				licenciamento.setAno(Integer.parseInt(JOptionPane.showInputDialog(null, "Digite ano veiculo")));
 				licenciamento.setValorLicenciamento(
-						Float.parseFloat(JOptionPane.showInputDialog(null, "Digite valor doLicenciamento")));
+						Float.parseFloat(JOptionPane.showInputDialog(null, "Digite valor Licenciamento")));
 				licenciamento.setControladorLicenciamento(0);
 				}catch (NumberFormatException e) {
-					System.out.println("Formulario Veiculo, campo digitado Incorreto");
+					System.out.println("Formulario Veiculo, Campo digitado Incorreto, Tente Novamente");
 				}
 				veiculosTO.setLicenciamento(licenciamento);
 				veiculoDAO.incluir(veiculosTO);
@@ -53,7 +53,7 @@ public class ExecutarVeiculo {
 				break;
 			case 2:
 				
-				 placa = String.format(JOptionPane.showInputDialog(null, "Digite a placa que deseja fazer a alteração"));
+				 placa = String.format(JOptionPane.showInputDialog(null, "Digite placa para alteração"));
 				veiculoDAO.alterar(placa);
 				break;
 
@@ -61,7 +61,7 @@ public class ExecutarVeiculo {
 				Veiculos vconsulta = new Veiculos();
 
 				try {
-					placa = String.format(JOptionPane.showInputDialog(null, "Digite Placa para Consulta"));
+					placa = String.format(JOptionPane.showInputDialog(null, "Digite Placa Consulta"));
 					vconsulta = veiculoDAO.consulta(placa);
 					System.out.println(
 							"Placa: " + vconsulta.getPlaca() + " - Modelo: " + vconsulta.getModelo() + " - Potencia: "
@@ -78,7 +78,7 @@ public class ExecutarVeiculo {
 				break;
 
 			case 5:
-				placa = String.format(JOptionPane.showInputDialog(null, "Digite Placa para Consulta"));
+				placa = String.format(JOptionPane.showInputDialog(null, "Digite placa para Deletar"));
 				vconsulta = veiculoDAO.consulta(placa);
 				veiculoDAO.delete(vconsulta);
 				break;
